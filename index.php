@@ -56,16 +56,16 @@
                                 <!--<input class=" btn btn-info" type="submit" name="logout" value="Logout"/>-->
 						</div>
 					</form>
-                    <!--<a href="register.php" class="btn btn-primary">New user</a>-->
+                
 				</div>
                 
 			</div>
 			<?php
 			
-							//echo("Hello".$time2);
+							
 				if(isset($_POST['submit'])) { // Was the form submitted?
 					
-					$link = mysqli_connect("#","#","6b55f895","#") or die ("Connection Error " . mysqli_error($link));
+					$link = mysqli_connect("#","#","#","#") or die ("Connection Error " . mysqli_error($link));
 					
 
 
@@ -73,14 +73,7 @@
 
 
 
-					/*
-					$sql = 'SELECT salt, hashed_password FROM users WHERE username = $1';
-					if ($stmt = mysqli_prepare($link, $sql)) {
-						mysqli_stmt_bind_param($stmt, "s", $_POST['username']);
-						mysqli_stmt_execute($stmt) or die("execute");
-					}
-					$result = mysqli_stmt_get_result($stmt);
-					*/
+					//password salted and Hashed
 					
 					$sql = 'SELECT salt, hashed_password, usertype FROM users WHERE username = "';
 					$query=$sql . $_POST['username'].'";';
@@ -96,12 +89,6 @@
 							$_SESSION['islogin'] = '1';
 							
 							
-							//set time
-							//date_default_timezone_set("America/Chicago");
-							//$time=date('Y-m-d H:i:s');
-							//echo("Hello".$time);
-							//$sql2='UPDATE logins SET time_of_login=" WHERE userName = "';
-							//=$sql2 . $_POST['username'].'";';
 							
 							date_default_timezone_set("America/Chicago");
 							$time2=date('Y-m-d H:i:s');
@@ -115,17 +102,7 @@
 							
 							
 							
-							/*
-							if($_SESSION['usertype']=='a')
-							{
-								echo ' Welcome Admin! You have super privileges';
-							}
-							else
-							{
-								echo 'Welcome ' . $_SESSION['username'] . '!';
-							}
-							*/
-							//echo '<br><input class=" btn btn-info" type="logout" name="logout" value="Logout"/>';
+						
 							
 							if($_SESSION['usertype']=='c')
 							{
@@ -133,42 +110,22 @@
 							}
 							else
 							{
-								header("Location: main.php");/////////////////////////////
+								header("Location: main.php");
 							}
 							
 						}
 						else
 						{
 							echo 'Password error!';
-							/*
-							echo $row['hashed_password'];
-							echo '<br>';
-							echo $localhash;
-							echo '<br>';
-							echo $_SESSION['usertype'];
-							*/
+							
 						}
-						/*
-						if($_SESSION['islogin']=='1')
-							{
-								echo ' <input class=" btn btn-info" type="submit" name="logout" value="Logout"/>';
-							}
-						*/
+						
 						
    
     
 					
 				}
-				/*
-				if(isset($_POST['logout']))
-				{
-					// remove all session variables
-					session_unset();
-					// destroy the session
-					session_destroy();
-					echo 'You logged out!';
-				}
-				*/
+			
 			?>
 		</div>
     
