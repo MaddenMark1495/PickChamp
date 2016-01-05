@@ -53,7 +53,7 @@
 				
 				if(isset($_POST['logout']))
 				{
-					$link = mysqli_connect("us-cdbr-azure-central-a.cloudapp.net","b4c7b9a31c031e","6b55f895","pickcham-zgjmyy") or die ("Connection Error " . mysqli_error($link));
+					$link = mysqli_connect("#","#","#","#") or die ("Connection Error " . mysqli_error($link));
 					date_default_timezone_set("America/Chicago");
 							$time2=date('Y-m-d H:i:s');
 					$query2='UPDATE logins SET time_of_logout="' . $time2 . '" WHERE userName = "' . $_SESSION['username'].'";';
@@ -87,7 +87,7 @@
 			</table>
     
             <?php
-                 $link = mysqli_connect("us-cdbr-azure-central-a.cloudapp.net", "b4c7b9a31c031e", "6b55f895", "pickcham-zgjmyy") or die("Connect Error ". mysqli_error($link));
+                 $link = mysqli_connect("#", "#", "#", "#") or die("Connect Error ". mysqli_error($link));
                 if(isset($_POST['submit'])){
 					echo $_POST['pick1'];
 					echo $_POST['pick2'];
