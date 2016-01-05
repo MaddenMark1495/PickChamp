@@ -66,13 +66,6 @@
 				if(isset($_POST['submit'])) { // Was the form submitted?
 					
 					$link = mysqli_connect("#","#","#","#") or die ("Connection Error " . mysqli_error($link));
-					
-
-
-
-
-
-
 					//password salted and Hashed
 					
 					$sql = 'SELECT salt, hashed_password, usertype FROM users WHERE username = "';
@@ -97,12 +90,6 @@
 							mysqli_query($link, $query2);
 							mysqli_query($link, $query3);
 							
-							
-							
-							
-							
-							
-						
 							
 							if($_SESSION['usertype']=='c')
 							{
